@@ -1,0 +1,31 @@
+---
+---
+<div id="map" style="height: 400px; width: 100%; border-radius: 12px; margin-bottom: 2rem; border: 2px solid #0d47a1; z-index: 1;"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    var map = L.map('map').setView([-22.4, -42.8], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    var regions = [
+      { name: "Região Metropolitana", coords: [-22.9068, -43.1729], url: "/mapa_rio/tags/metropolitana", riocarta: "http://159.89.185.209/tags/metropolitana" },
+      { name: "Região dos Lagos", coords: [-22.8791, -42.0287], url: "/mapa_rio/tags/lagos", riocarta: "http://159.89.185.209/tags/lagos" },
+      { name: "Região Serrana", coords: [-22.2882, -42.5330], url: "/mapa_rio/tags/serrana", riocarta: "http://159.89.185.209/tags/serrana" },
+      { name: "Costa Verde", coords: [-23.0136, -44.3168], url: "/mapa_rio/tags/costa-verde", riocarta: "http://159.89.185.209/tags/costa-verde" },
+      { name: "Norte Fluminense", coords: [-21.7589, -41.3259], url: "/mapa_rio/tags/norte-fluminense", riocarta: "http://159.89.185.209/tags/norte-fluminense" },
+      { name: "Sul Fluminense", coords: [-22.5222, -44.1039], url: "/mapa_rio/tags/sul-fluminense", riocarta: "http://159.89.185.209/tags/sul-fluminense" }
+    ];
+
+    regions.forEach(function(region) {
+      var popupContent = `<b>${region.name}</b><br/>` +
+                         `<a href="${region.url}" style="color: #0d47a1; font-weight: bold; display: block; margin-top: 5px;">📍 Dados Locais (Mapa Rio)</a>` +
+                         `<a href="${region.riocarta}" target="_blank" style="color: #009c3b; font-weight: bold; display: block; margin-top: 5px;">📰 Notícias (Rio Carta) ↗</a>`;
+      L.marker(region.coords).addTo(map)
+        .bindPopup(popupContent);
+    });
+  });
+</script>
