@@ -6,9 +6,9 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  base: '/mapa_rio',
-	site: 'https://example.com',
+	site: 'https://mapario.com.br',
 	integrations: [mdx(), sitemap()],
+
 	fonts: [
 		{
 			provider: fontProviders.local(),
