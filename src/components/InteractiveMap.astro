@@ -12,13 +12,14 @@
     }).addTo(map);
 
     var regions = [
-      { name: "Região Metropolitana", coords: [-22.9068, -43.1729], url: "/mapa_rio/tags/metropolitana", riocarta: "http://159.89.185.209/tags/metropolitana" },
-      { name: "Região dos Lagos", coords: [-22.8791, -42.0287], url: "/mapa_rio/tags/lagos", riocarta: "http://159.89.185.209/tags/lagos" },
-      { name: "Região Serrana", coords: [-22.2882, -42.5330], url: "/mapa_rio/tags/serrana", riocarta: "http://159.89.185.209/tags/serrana" },
-      { name: "Costa Verde", coords: [-23.0136, -44.3168], url: "/mapa_rio/tags/costa-verde", riocarta: "http://159.89.185.209/tags/costa-verde" },
-      { name: "Norte Fluminense", coords: [-21.7589, -41.3259], url: "/mapa_rio/tags/norte-fluminense", riocarta: "http://159.89.185.209/tags/norte-fluminense" },
-      { name: "Sul Fluminense", coords: [-22.5222, -44.1039], url: "/mapa_rio/tags/sul-fluminense", riocarta: "http://159.89.185.209/tags/sul-fluminense" }
+      { name: "Região Metropolitana", coords: [-22.9068, -43.1729], url: "/tags/metropolitana", riocarta: "http://159.89.185.209/tags/metropolitana" },
+      { name: "Região dos Lagos", coords: [-22.8791, -42.0287], url: "/tags/lagos", riocarta: "http://159.89.185.209/tags/lagos" },
+      { name: "Região Serrana", coords: [-22.2882, -42.5330], url: "/tags/serrana", riocarta: "http://159.89.185.209/tags/serrana" },
+      { name: "Costa Verde", coords: [-23.0136, -44.3168], url: "/tags/costa-verde", riocarta: "http://159.89.185.209/tags/costa-verde" },
+      { name: "Norte Fluminense", coords: [-21.7589, -41.3259], url: "/tags/norte-fluminense", riocarta: "http://159.89.185.209/tags/norte-fluminense" },
+      { name: "Sul Fluminense", coords: [-22.5222, -44.1039], url: "/tags/sul-fluminense", riocarta: "http://159.89.185.209/tags/sul-fluminense" }
     ];
+
 
     regions.forEach(function(region) {
       var popupContent = `<b>${region.name}</b><br/>` +
