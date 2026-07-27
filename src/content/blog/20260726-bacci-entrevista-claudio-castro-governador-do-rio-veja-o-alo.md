@@ -1,7 +1,7 @@
 ---
 title: "Bacci entrevista Cláudio Castro, governador do Rio: veja o #AloVoce"
 description: "Entrevista exclusiva com o governador Cláudio Castro aborda temas relevantes à Rio e Baixada"
-pubDate: "2026-07-26"
+pubDate: "2025-11-10"
 video_date: "2025-11-10"
 heroImage: "/hero/youtube-Gk52GD8iyLA.jpg"
 hero_credit: "YouTube/canal"
@@ -11,6 +11,10 @@ tags: ["Governador", "Cláudio Castro", "Entrevista", "Política", "Rio de Janei
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+
+politician: "CLÁUDIO CASTRO"
+party: "PL"
+region: "METROPOLITANA"
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gk52GD8iyLA" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 

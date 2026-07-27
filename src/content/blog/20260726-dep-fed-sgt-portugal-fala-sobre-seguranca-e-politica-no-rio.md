@@ -1,7 +1,7 @@
 ---
 title: "Dep. Fed. Sgt Portugal fala sobre Segurança e Política no Rio"
 description: "Entrevista com o deputado federal sobre as principais questões do Rio de Janeiro"
-pubDate: "2026-07-26"
+pubDate: "2025-10-29"
 video_date: "2025-10-29"
 heroImage: "/hero/youtube-K3qRy3GuCXc.jpg"
 hero_credit: "YouTube/Podcast RJ"
@@ -11,6 +11,10 @@ tags: ["Segurança", "Política", "Rio de Janeiro", "Baixada Fluminense", "Orça
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+
+politician: "SGT PORTUGAL"
+party: "PODEMOS"
+region: "METROPOLITANA"
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K3qRy3GuCXc" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 

@@ -1,7 +1,7 @@
 ---
 title: "Wilson Witzel desvenda bastidores da política carioca"
 description: "Vídeo de ex-governador do Rio revela aspectos ocultos do poder fluminense."
-pubDate: "2026-07-26"
+pubDate: "2026-02-06"
 video_date: "2026-02-06"
 heroImage: "/hero/youtube-0UIwfnAzPS0.jpg"
 hero_credit: "YouTube/Fala Glauber Podcast"
@@ -11,6 +11,10 @@ tags: ["Política", "Rio de Janeiro", "Wilson Witzel", "Crisis Institucional", "
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+
+politician: "WILSON WITZEL"
+party: "PMB"
+region: "METROPOLITANA"
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0UIwfnAzPS0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 

@@ -1,7 +1,7 @@
 ---
 title: "Prefeito Eduardo Paes revela gravidade da tragédia do Rio em entrevista ao O Globo"
 description: "Eduardo Paes fala sobre os desafios políticos e econômicos enfrentados pela cidade do Rio de Janeiro."
-pubDate: "2026-07-26"
+pubDate: "2020-11-18"
 video_date: "2020-11-18"
 heroImage: "/hero/youtube-Y2YhNrbKpN0.jpg"
 hero_credit: "YouTube/O GLOBO"
@@ -11,6 +11,10 @@ tags: ["Eduardo Paes", "Rio de Janeiro", "Política", "Economia", "Sociedade"]
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+
+politician: "EDUARDO PAES"
+party: "DEM"
+region: "METROPOLITANA"
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Y2YhNrbKpN0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 

@@ -1,7 +1,7 @@
 ---
 title: "Veja o debate com candidatos a prefeito do Rio sobre segurança, saúde e mobilidade"
 description: "Assista ao confronto dos principais pré-candidatos à Prefeitura do Rio sob a égide da revista VEJA."
-pubDate: "2026-07-26"
+pubDate: "2024-09-12"
 video_date: "2024-09-12"
 heroImage: "/hero/youtube-89UQZmemCZo.jpg"
 hero_credit: "YouTube/VEJA"
@@ -11,6 +11,10 @@ tags: ["Eleição", "Prefeito", "Segurança Pública", "Saúde", "Mobilidade"]
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+
+politician: "DEBATE VEJA"
+party: "PREFEITURA RJ"
+region: "METROPOLITANA"
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/89UQZmemCZo" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 

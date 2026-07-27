@@ -10,6 +10,10 @@ tags: ["teatro", "barra da tijuca", "humor", "drama", "relacionamentos", "cultur
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+
+video_date: "2026-07-26"
+politician: "AGENDA CULTURAL"
+region: "METROPOLITANA"
 ---
 Depois de fazer sucesso em São Paulo, o espetáculo 'Meu Garoto' chega ao Rio de Janeiro para duas apresentações especiais. A peça acontece nos dias 21 e 22 de agosto, no Teatro Del'Arte, na Barra da Tijuca.
 

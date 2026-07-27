@@ -1,7 +1,7 @@
 ---
 title: "Sabatina com Candidatos à Prefeitura do Rio: Visão para o Futuro"
 description: "Assista à sabatina detalhada com propostas para gestão da cidade, segurança e desenvolvimento econômico no Rio."
-pubDate: "2026-07-26"
+pubDate: "2024-09-11"
 video_date: "2024-09-11"
 heroImage: "/hero/youtube-bo6qOgglr4I.jpg"
 hero_credit: "YouTube/Sabatina Eleitoral"
@@ -11,6 +11,10 @@ tags: ["Eleições", "Prefeitura", "Gestão Urbana", "Segurança", "Desenvolvime
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+
+politician: "CANDIDATOS RJ"
+party: "SABATINA"
+region: "METROPOLITANA"
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bo6qOgglr4I" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
