@@ -1,10 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-// NOTA GLM-5.2 26/07: o import estático NÃO estava sendo bundleado no build
-// (só Header.css aparecia no dist, sem os estilos base de body/main/fonte).
-// Solução robusta: global.css copiado para public/styles/ e linkado abaixo —
-// servido como arquivo estático, sem depender do bundler.
+import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE } from '../consts';
@@ -35,9 +32,6 @@ if (typeof image === 'string') {
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<!-- Estilos base (body/main/fonte/vars) — antes bundleados via import, agora servidos
-     de public/styles/ porque o bundler não os incluía no build (menu estourado 26/07) -->
-<link rel="stylesheet" href="/styles/global.css" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
