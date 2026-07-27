@@ -2,6 +2,7 @@
 title: "Sabatina com Candidatos à Prefeitura do Rio: Visão para o Futuro"
 description: "Assista à sabatina detalhada com propostas para gestão da cidade, segurança e desenvolvimento econômico no Rio."
 pubDate: "2026-07-26"
+video_date: "2024-09-11"
 heroImage: "/hero/youtube-bo6qOgglr4I.jpg"
 hero_credit: "YouTube/Sabatina Eleitoral"
 source_name: "YouTube — Sabatina Eleitoral"

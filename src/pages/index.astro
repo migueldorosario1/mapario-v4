@@ -11,6 +11,20 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// data da gravação (video_date) vs data de coleta (pubDate): marca entrevistas
+// de anos anteriores ao ano corrente para alertar o leitor (GLM-5.2 26/07).
+const ANO_ATUAL = new Date().getFullYear();
+function classeVideoDate(post: any): string {
+	const vd = post.data.video_date;
+	if (!vd) return 'video-date';
+	return vd.getFullYear() < ANO_ATUAL ? 'video-date antiga' : 'video-date';
+}
+function textoVideoDate(post: any): string | null {
+	const vd = post.data.video_date;
+	if (!vd) return null;
+	return vd.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+}
 ---
 
 <!doctype html>
@@ -54,15 +68,24 @@ const posts = (await getCollection('blog')).sort(
 			ul li a {
 				display: block;
 			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
+				.title {
+					margin: 0;
+					color: rgb(var(--black));
+					line-height: 1;
+				}
+				.date {
+					margin: 0;
+					color: rgb(var(--gray));
+				}
+				.video-date {
+					margin: 0;
+					color: rgb(var(--gray-dark));
+					font-size: 0.9em;
+					font-weight: 600;
+				}
+				.video-date.antiga {
+					color: #b45309; /* alerta âmbar p/ entrevistas de anos anteriores */
+				}
 			ul li a:hover h4,
 			ul li a:hover .date {
 				color: rgb(var(--accent));
@@ -101,6 +124,11 @@ const posts = (await getCollection('blog')).sort(
 										<img width="720" height="360" src={post.data.heroImage} alt="" />
 									)}
 									<h4 class="title">{post.data.title}</h4>
+									{post.data.video_date && (
+										<p class={classeVideoDate(post)}>
+											🎙️ Gravada em {textoVideoDate(post)}
+										</p>
+									)}
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
 									</p>

@@ -2,6 +2,7 @@
 title: "Dep. Fed. Sgt Portugal fala sobre Segurança e Política no Rio"
 description: "Entrevista com o deputado federal sobre as principais questões do Rio de Janeiro"
 pubDate: "2026-07-26"
+video_date: "2025-10-29"
 heroImage: "/hero/youtube-K3qRy3GuCXc.jpg"
 hero_credit: "YouTube/Podcast RJ"
 source_name: "YouTube — Podcast RJ"

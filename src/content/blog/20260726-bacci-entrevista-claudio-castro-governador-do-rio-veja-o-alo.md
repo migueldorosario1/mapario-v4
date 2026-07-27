@@ -2,6 +2,7 @@
 title: "Bacci entrevista Cláudio Castro, governador do Rio: veja o #AloVoce"
 description: "Entrevista exclusiva com o governador Cláudio Castro aborda temas relevantes à Rio e Baixada"
 pubDate: "2026-07-26"
+video_date: "2025-11-10"
 heroImage: "/hero/youtube-Gk52GD8iyLA.jpg"
 hero_credit: "YouTube/canal"
 source_name: "YouTube — Bacci entrevista Cláudio Castro, governador do Rio de Janeir"

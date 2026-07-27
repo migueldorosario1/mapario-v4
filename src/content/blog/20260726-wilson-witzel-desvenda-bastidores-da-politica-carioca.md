@@ -2,6 +2,7 @@
 title: "Wilson Witzel desvenda bastidores da política carioca"
 description: "Vídeo de ex-governador do Rio revela aspectos ocultos do poder fluminense."
 pubDate: "2026-07-26"
+video_date: "2026-02-06"
 heroImage: "/hero/youtube-0UIwfnAzPS0.jpg"
 hero_credit: "YouTube/Fala Glauber Podcast"
 source_name: "YouTube — Fala Glauber Podcast"

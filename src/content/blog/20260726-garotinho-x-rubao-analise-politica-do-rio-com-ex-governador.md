@@ -2,6 +2,7 @@
 title: "Garotinho x Rubão: Análise Política do Rio com Ex-Governador"
 description: "O ex-governador Anthony Garotinho e Rubão discutem a política do Rio de Janeiro e bastidores do poder."
 pubDate: "2026-07-26"
+video_date: "2026-06-23"
 heroImage: "/hero/youtube-qZFH5uD0-Zg.jpg"
 hero_credit: "YouTube/Podcast 3 Irmãos"
 source_name: "YouTube — Podcast 3 Irmãos"

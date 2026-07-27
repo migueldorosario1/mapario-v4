@@ -2,6 +2,7 @@
 title: "Eduardo Paes debate investimentos, transporte e desafios urbanos no Rio de Janeiro"
 description: "Assista à entrevista do prefeito Eduardo Paes sobre o futuro da cidade e os desafios enfrentados."
 pubDate: "2026-07-26"
+video_date: "2021-06-07"
 heroImage: "/hero/youtube-j2vVyNDXM7Y.jpg"
 hero_credit: "YouTube/Poder360"
 source_name: "YouTube — Poder360"

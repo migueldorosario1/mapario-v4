@@ -9,7 +9,12 @@ import Interlinks from '../components/Interlinks.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, video_date, heroImage } = Astro.props;
+
+// data da gravação (video_date) distinta da de coleta (pubDate) — GLM-5.2 26/07
+const videoDateFmt = video_date
+	? video_date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })
+	: null;
 ---
 
 <html lang="en">
@@ -50,6 +55,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
 			}
+			.video-date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray-dark));
+				font-weight: 600;
+				font-size: 1.05em;
+			}
 			.last-updated-on {
 				font-style: italic;
 			}
@@ -65,8 +76,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				</div>
 				<div class="prose">
 					<div class="title">
+						{videoDateFmt && (
+							<div class="video-date">🎙️ Entrevista gravada em {videoDateFmt}</div>
+						)}
 						<div class="date">
-							<FormattedDate date={pubDate} />
+							Publicado em <FormattedDate date={pubDate} />
 							{
 								updatedDate && (
 									<div class="last-updated-on">
