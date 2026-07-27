@@ -1,144 +1,482 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import InteractiveMap from '../components/InteractiveMap.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	(a, b) => (b.data.video_date || b.data.pubDate).valueOf() - (a.data.video_date || a.data.pubDate).valueOf()
 );
 
-// data da gravação (video_date) vs data de coleta (pubDate): marca entrevistas
-// de anos anteriores ao ano corrente para alertar o leitor (GLM-5.2 26/07).
-const ANO_ATUAL = new Date().getFullYear();
-function classeVideoDate(post: any): string {
-	const vd = post.data.video_date;
-	if (!vd) return 'video-date';
-	return vd.getFullYear() < ANO_ATUAL ? 'video-date antiga' : 'video-date';
+function formatDate(date: Date) {
+	if (!date) return '';
+	return date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
 }
-function textoVideoDate(post: any): string | null {
-	const vd = post.data.video_date;
-	if (!vd) return null;
-	return vd.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+
+function getRegionColor(region?: string): string {
+	if (!region) return '#3730a3';
+	const r = region.toUpperCase();
+	if (r.includes('LAGOS')) return '#0d9488';
+	if (r.includes('COSTA')) return '#4338ca';
+	if (r.includes('CENTRO-SUL')) return '#6b21a8';
+	if (r.includes('NOROESTE')) return '#b91c1c';
+	if (r.includes('SERRANA')) return '#15803d';
+	if (r.includes('SUL')) return '#581c87';
+	if (r.includes('NORTE')) return '#c2410c';
+	return '#3730a3';
 }
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				width: 960px;
+			:root {
+				--primary-purple: #5b21b6;
+				--accent-purple: #6d28d9;
+				--light-purple: #f3e8ff;
+				--primary-green: #16a34a;
+				--bg-gray: #f9fafb;
+				--text-dark: #111827;
+				--text-muted: #6b7280;
 			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
+
+			body {
+				background-color: var(--bg-gray);
+				font-family: 'Inter', system-ui, -apple-system, sans-serif;
+				color: var(--text-dark);
 				margin: 0;
 				padding: 0;
 			}
-			ul li {
-				width: calc(50% - 1rem);
+
+			.main-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 2.5rem 1.5rem;
 			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
+
+			/* Hero Section */
+			.hero-section {
+				text-align: center;
+				margin-bottom: 2.5rem;
 			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
+
+			.badge-hero {
+				display: inline-block;
+				background-color: #dcfce7;
+				color: var(--primary-green);
+				font-size: 0.75rem;
+				font-weight: 800;
+				letter-spacing: 0.08em;
+				padding: 0.35rem 0.9rem;
+				border-radius: 9999px;
+				text-transform: uppercase;
+				margin-bottom: 1.25rem;
+				border: 1px solid #bbf7d0;
+			}
+
+			.title-hero {
+				font-family: 'Outfit', 'Inter', sans-serif;
+				font-size: clamp(2rem, 4vw, 2.75rem);
+				font-weight: 800;
+				color: var(--text-dark);
+				line-height: 1.15;
+				margin: 0 0 1rem 0;
+				letter-spacing: -0.02em;
+			}
+
+			.title-hero .highlight {
+				color: var(--accent-purple);
+			}
+
+			.subtitle-hero {
+				font-size: 1.05rem;
+				color: var(--text-muted);
+				max-width: 680px;
+				margin: 0 auto;
+				line-height: 1.6;
+			}
+
+			/* Filter Section */
+			.filter-section {
+				margin-bottom: 2rem;
+			}
+
+			.filter-label {
+				font-size: 0.75rem;
+				font-weight: 800;
+				letter-spacing: 0.08em;
+				color: #4b5563;
+				text-transform: uppercase;
+				margin-bottom: 0.85rem;
+			}
+
+			.filter-buttons {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.6rem;
+				align-items: center;
+			}
+
+			.btn-filter {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				font-family: 'Inter', sans-serif;
+				font-size: 0.85rem;
+				font-weight: 600;
+				padding: 0.45rem 1rem;
+				border-radius: 9999px;
+				border: 1px solid #e5e7eb;
+				background: #ffffff;
+				color: #374151;
+				cursor: pointer;
+				transition: all 0.2s ease;
+				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+			}
+
+			.btn-filter:hover {
+				border-color: #cbd5e1;
+				background: #f8fafc;
+			}
+
+			.btn-filter.active {
+				background-color: #4338ca;
+				color: #ffffff;
+				border-color: #4338ca;
+				box-shadow: 0 2px 4px rgba(67, 56, 202, 0.25);
+			}
+
+			.btn-filter .dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				display: inline-block;
+			}
+
+			/* Map & Info Card Section */
+			.map-section {
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				gap: 1.5rem;
+				margin-bottom: 3.5rem;
+				align-items: stretch;
+			}
+
+			.map-wrapper {
+				background: #ffffff;
+				border-radius: 16px;
+				overflow: hidden;
+				border: 1px solid #e5e7eb;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+				min-height: 380px;
+			}
+
+			.info-card {
+				background: #ffffff;
+				border-radius: 16px;
+				border: 1px solid #e5e7eb;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+				padding: 2.5rem 1.75rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
 				text-align: center;
 			}
-			ul li:first-child img {
+
+			.info-icon {
+				width: 54px;
+				height: 54px;
+				color: #6d28d9;
+				margin-bottom: 1.25rem;
+			}
+
+			.info-title {
+				font-family: 'Outfit', 'Inter', sans-serif;
+				font-size: 1.25rem;
+				font-weight: 800;
+				color: var(--text-dark);
+				margin: 0 0 0.75rem 0;
+			}
+
+			.info-desc {
+				font-size: 0.9rem;
+				color: var(--text-muted);
+				line-height: 1.55;
+				margin: 0;
+			}
+
+			/* Candidates Video Grid */
+			.cards-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+				gap: 1.75rem;
+			}
+
+			.post-card {
+				background: #ffffff;
+				border-radius: 16px;
+				border: 1px solid #e5e7eb;
+				overflow: hidden;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+				transition: transform 0.25s ease, box-shadow 0.25s ease;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.post-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+			}
+
+			.card-thumb {
+				position: relative;
 				width: 100%;
+				aspect-ratio: 16 / 9;
+				overflow: hidden;
+				background-color: #f3f4f6;
 			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
+
+			.card-thumb img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
 			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
+
+			.post-card:hover .card-thumb img {
+				transform: scale(1.03);
 			}
-			ul li a {
-				display: block;
+
+			.region-badge {
+				position: absolute;
+				top: 12px;
+				left: 12px;
+				color: #ffffff;
+				font-size: 0.65rem;
+				font-weight: 800;
+				padding: 0.3rem 0.65rem;
+				border-radius: 6px;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 			}
-				.title {
-					margin: 0;
-					color: rgb(var(--black));
-					line-height: 1;
-				}
-				.date {
-					margin: 0;
-					color: rgb(var(--gray));
-				}
-				.video-date {
-					margin: 0;
-					color: rgb(var(--gray-dark));
-					font-size: 0.9em;
-					font-weight: 600;
-				}
-				.video-date.antiga {
-					color: #b45309; /* alerta âmbar p/ entrevistas de anos anteriores */
-				}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
+
+			.card-body {
+				padding: 1.25rem;
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
 			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
+
+			.card-top-meta {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 0.6rem;
 			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
+
+			.politician-name {
+				font-size: 0.75rem;
+				font-weight: 800;
+				color: #374151;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+
+			.party-badge {
+				background-color: #fef3c7;
+				color: #b45309;
+				font-size: 0.65rem;
+				font-weight: 800;
+				padding: 0.15rem 0.5rem;
+				border-radius: 4px;
+			}
+
+			.card-title {
+				font-size: 1.05rem;
+				font-weight: 700;
+				line-height: 1.35;
+				margin: 0 0 0.6rem 0;
+				color: var(--text-dark);
+			}
+
+			.card-title a {
+				color: inherit;
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+
+			.card-title a:hover {
+				color: var(--accent-purple);
+			}
+
+			.card-desc {
+				font-size: 0.85rem;
+				color: var(--text-muted);
+				line-height: 1.5;
+				margin: 0 0 1.25rem 0;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+
+			.card-footer {
+				margin-top: auto;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 0.75rem;
+				color: #9ca3af;
+				padding-top: 0.75rem;
+				border-top: 1px solid #f3f4f6;
+			}
+
+			.source-name {
+				font-weight: 500;
+				color: #6b7280;
+			}
+
+			.video-date-text {
+				font-weight: 500;
+			}
+
+			@media (max-width: 900px) {
+				.map-section {
+					grid-template-columns: 1fr;
 				}
-				ul li {
-					width: 100%;
-					text-align: center;
+			}
+
+			@media (max-width: 640px) {
+				.cards-grid {
+					grid-template-columns: 1fr;
 				}
-				ul li:first-child {
-					margin-bottom: 0;
+				.filter-buttons {
+					overflow-x: auto;
+					padding-bottom: 0.5rem;
+					flex-wrap: nowrap;
 				}
-				ul li:first-child .title {
-					font-size: 1.563em;
+				.btn-filter {
+					flex-shrink: 0;
 				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<InteractiveMap />
+		
+		<main class="main-container">
+			<!-- Hero Section -->
+			<section class="hero-section">
+				<div class="badge-hero">DADOS & JORNALISMO SOBERANO</div>
+				<h1 class="title-hero">O Cenário Político Fluminense no <span class="highlight">Mapa Rio</span></h1>
+				<p class="subtitle-hero">
+					Navegue pelo mapa interativo para explorar o alinhamento das prefeituras, dados socioeconômicos regionais e assista a entrevistas com os principais nomes do estado.
+				</p>
+			</section>
+
+			<!-- Filter Section -->
+			<section class="filter-section">
+				<div class="filter-label">EXPLORAR REGIÕES:</div>
+				<div class="filter-buttons">
+					<button class="btn-filter active" data-region="all">Estado Completo</button>
+					<button class="btn-filter" data-region="METROPOLITANA"><span class="dot" style="background: #3730a3;"></span> Metropolitana</button>
+					<button class="btn-filter" data-region="REGIÃO DOS LAGOS"><span class="dot" style="background: #0d9488;"></span> Região dos Lagos</button>
+					<button class="btn-filter" data-region="SERRANA"><span class="dot" style="background: #15803d;"></span> Serrana</button>
+					<button class="btn-filter" data-region="NORTE FLUMINENSE"><span class="dot" style="background: #c2410c;"></span> Norte Fluminense</button>
+					<button class="btn-filter" data-region="NOROESTE FLUMINENSE"><span class="dot" style="background: #b91c1c;"></span> Noroeste Fluminense</button>
+					<button class="btn-filter" data-region="SUL FLUMINENSE"><span class="dot" style="background: #581c87;"></span> Sul Fluminense</button>
+					<button class="btn-filter" data-region="COSTA VERDE"><span class="dot" style="background: #4338ca;"></span> Costa Verde</button>
+					<button class="btn-filter" data-region="CENTRO-SUL FLUMINENSE"><span class="dot" style="background: #6b21a8;"></span> Centro-Sul</button>
+				</div>
+			</section>
+
+			<!-- Map & Info Section -->
+			<section class="map-section">
+				<div class="map-wrapper">
+					<InteractiveMap />
+				</div>
+				<div class="info-card">
+					<svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+						<circle cx="12" cy="12" r="10"></circle>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+					</svg>
+					<h3 class="info-title">Mapa Político Fluminense</h3>
+					<p class="info-desc">
+						Selecione uma região no mapa ou nos botões de filtro para carregar o panorama eleitoral, principais lideranças e dados socioeconômicos locais.
+					</p>
+				</div>
+			</section>
+
+			<!-- Candidates Video Grid -->
 			<section>
-				<ul>
+				<div class="cards-grid" id="cardsContainer">
 					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<img width="720" height="360" src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									{post.data.video_date && (
-										<p class={classeVideoDate(post)}>
-											🎙️ Gravada em {textoVideoDate(post)}
-										</p>
-									)}
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
+						posts.map((post) => {
+							const reg = post.data.region || 'METROPOLITANA';
+							const bgColor = getRegionColor(reg);
+							return (
+								<article class="post-card" data-region={reg.toUpperCase()}>
+									<div class="card-thumb">
+										{post.data.heroImage && (
+											<img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+										)}
+										<span class="region-badge" style={`background-color: ${bgColor};`}>
+											{reg}
+										</span>
+									</div>
+									<div class="card-body">
+										<div class="card-top-meta">
+											<span class="politician-name">{post.data.politician || 'POLÍTICA RJ'}</span>
+											{post.data.party && <span class="party-badge">{post.data.party}</span>}
+										</div>
+										<h3 class="card-title">
+											<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+										</h3>
+										<p class="card-desc">{post.data.description}</p>
+										<div class="card-footer">
+											<span class="source-name">{post.data.source_name || 'Redação Mapa Rio'}</span>
+											<span class="video-date-text">{formatDate(post.data.video_date || post.data.pubDate)}</span>
+										</div>
+									</div>
+								</article>
+							);
+						})
 					}
-				</ul>
+				</div>
 			</section>
 		</main>
+
 		<Footer />
+
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				const buttons = document.querySelectorAll('.btn-filter');
+				const cards = document.querySelectorAll('.post-card');
+
+				buttons.forEach(btn => {
+					btn.addEventListener('click', () => {
+						buttons.forEach(b => b.classList.remove('active'));
+						btn.classList.add('active');
+
+						const filter = btn.getAttribute('data-region').toUpperCase();
+
+						cards.forEach(card => {
+							const cardRegion = (card.getAttribute('data-region') || '').toUpperCase();
+							if (filter === 'ALL' || cardRegion.includes(filter) || filter.includes(cardRegion)) {
+								card.style.display = 'flex';
+							} else {
+								card.style.display = 'none';
+							}
+						});
+					});
+				});
+			});
+		</script>
 	</body>
 </html>

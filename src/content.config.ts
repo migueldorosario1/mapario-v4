@@ -17,6 +17,10 @@ const blog = defineCollection({
 		heroImage: z.string().optional(),
 		wp_id: z.number().optional(),
 		tags: z.array(z.string()).optional(),
+		region: z.string().optional(),
+		politician: z.string().optional(),
+		party: z.string().optional(),
+		source_name: z.string().optional(),
 	}),
 });
 
