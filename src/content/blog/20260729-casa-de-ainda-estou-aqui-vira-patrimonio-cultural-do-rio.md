@@ -3,7 +3,7 @@ title: "Casa de 'Ainda Estou Aqui' vira patrimônio cultural do Rio"
 description: "Prefeitura desapropria imóvel do filme vencedor do Oscar para criar a Casa do Cinema Brasileiro."
 pubDate: "2026-07-29"
 heroImage: "/hero/casa-de-ainda-estou-aqui-vira-patrimonio-cultural-do-rio.jpg"
-hero_credit: "Photo by heibe on Pixabay"
+hero_credit: "Photo by Rodrigo Menezes on Pexels"
 source_name: "Prefeitura do Rio declara de utilidade pública casa de “Ainda Estou Aqui” | Eu & | Valor Econômico"
 source_url: "https://valor.globo.com/eu-e/noticia/2025/03/03/decreto-da-prefeitura-do-rio-declara-de-utilidade-publica-casa-de-ainda-estou-aqui.ghtml"
 tags: ["ainda estou aqui", "casa do cinema brasileiro", "desapropriação", "riofilme", "patrimônio cultural", "oscar"]
