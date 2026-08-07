@@ -1,12 +1,26 @@
 ---
+import Logo from '../assets/logo.png';
 import Layout from '../layouts/BlogPost.astro';
 ---
+
+<style>
+	/* o hero do layout força 1020x510 (2:1); o logo do Mapa Rio é quadrado —
+	   corrige a proporção só nesta página */
+	:global(.hero-image img) {
+		width: auto;
+		height: auto;
+		max-width: min(520px, 90%);
+		aspect-ratio: 1 / 1;
+	}
+</style>
 
 <Layout
 	title="Quem somos"
 	description="O Mapa Rio é um projeto idealizado pelo jornalista Miguel do Rosário, em parceria com a UFRJ e a UFF, para oferecer um panorama imparcial e científico da política no Estado do Rio de Janeiro."
 	pubDate={new Date('2026-08-07')}
 	hideDate={true}
+	heroImage={Logo.src}
+	hero_legenda="Mapa Rio — Notícias & Dados"
 >
 	<p>
 		O <strong>Mapa Rio</strong> é um projeto idealizado pelo jornalista <strong>Miguel do
@@ -17,9 +31,16 @@ import Layout from '../layouts/BlogPost.astro';
 	<p>
 		O projeto consiste numa parceria com as universidades <strong>Universidade Federal do Rio de
 		Janeiro (UFRJ)</strong> e <strong>Universidade Federal Fluminense (UFF)</strong> — especialmente
-		com os professores <strong>Rogério Dutra</strong> e <strong>Mayra Goulart</strong> — para
+		com os professores <strong>Rogério Dultra</strong> e <strong>Mayra Goulart</strong> — para
 		estudar a realidade política, entrevistar lideranças políticas no Estado e oferecer um panorama
 		imparcial e científico sobre os mecanismos da política no Estado do Rio de Janeiro.
+	</p>
+
+	<p>
+		<strong>Rogério Dultra</strong> é professor de Direito da UFF e coordenador do Centro de Estudos
+		sobre Desigualdades Globais da UFF Ferdinand Braudel (CDG-UFF). <strong>Mayra Goulart</strong> é
+		professora de Ciência Política da UFRJ e uma das idealizadoras do Laboratório de Eleições,
+		Partidos e Política Comparada (LAPPCOM).
 	</p>
 
 	<p>
