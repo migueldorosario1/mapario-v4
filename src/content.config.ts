@@ -15,6 +15,8 @@ const blog = defineCollection({
 		// antigas apareciam com data de hoje — editorialmente errado.
 		video_date: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+		hero_credit: z.string().optional(),
+		hero_legenda: z.string().optional(),
 		wp_id: z.number().optional(),
 		tags: z.array(z.string()).optional(),
 		region: z.string().optional(),
