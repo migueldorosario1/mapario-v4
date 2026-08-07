@@ -7,9 +7,9 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Interlinks from '../components/Interlinks.astro';
 
-type Props = CollectionEntry<'blog'>['data'] & { hideDate?: boolean };
+type Props = CollectionEntry<'blog'>['data'] & { hideDate?: boolean; hideInterlinks?: boolean };
 
-const { title, description, pubDate, updatedDate, video_date, heroImage, hero_legenda, hero_credit, hideDate } = Astro.props;
+const { title, description, pubDate, updatedDate, video_date, heroImage, hero_legenda, hero_credit, hideDate, hideInterlinks } = Astro.props;
 
 // data da gravação (video_date) distinta da de coleta (pubDate) — GLM-5.2 26/07
 const videoDateFmt = video_date
@@ -114,9 +114,12 @@ const videoDateFmt = video_date
 					</div>
 					<slot />
 				</div>
-				<div class="prose" style="padding-top: 0;">
-					<Interlinks />
-				</div>
+				{/* Quem Somos não leva o bloco "Leia também" — ordem do editor 07/08 */}
+				{!hideInterlinks && (
+					<div class="prose" style="padding-top: 0;">
+						<Interlinks />
+					</div>
+				)}
 			</article>
 		</main>
 		<Footer />
