@@ -1,7 +1,7 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import HeaderLink from './HeaderLink.astro';
-import logoImg from '../assets/logo.png';
+import logoImg from '../assets/logo-icone.png';
 import { Image } from 'astro:assets';
 ---
 
@@ -9,7 +9,7 @@ import { Image } from 'astro:assets';
 	<nav class="navbar">
 		<div class="brand">
 			<a href="/" class="logo-link">
-				<Image src={logoImg} alt="Rio Carta Logo" width={40} height={40} class="logo-img" />
+				<Image src={logoImg} alt="Mapa Rio" width={40} height={44} class="logo-img" />
 				<div class="brand-text">
 					<span class="logo-title">MAPA RIO</span>
 					<span class="logo-subtitle">Mapa Político do Rio de Janeiro</span>
@@ -70,7 +70,8 @@ import { Image } from 'astro:assets';
 	}
 
 	.logo-img {
-		height: 36px;
+		/* so o icone, na altura do bloco titulo+subtitulo — ordem do editor 07/08 */
+		height: 44px;
 		width: auto;
 		object-fit: contain;
 	}
