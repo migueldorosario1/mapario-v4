@@ -17,7 +17,7 @@ const videoDateFmt = video_date
 	: null;
 ---
 
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<BaseHead title={title} description={description} image={heroImage} />
 		<style>
@@ -77,6 +77,27 @@ const videoDateFmt = video_date
 				font-style: italic;
 			}
 		</style>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "NewsArticle",
+			"headline": title,
+			"image": heroImage ? [new URL(heroImage, Astro.url).href] : [],
+			"datePublished": pubDate.toISOString(),
+			"dateModified": updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
+			"author": [{
+				"@type": "Organization",
+				"name": "Mapa Rio",
+				"url": "https://mapario.com.br"
+			}],
+			"publisher": {
+				"@type": "Organization",
+				"name": "Mapa Rio",
+				"logo": {
+					"@type": "ImageObject",
+					"url": new URL('/favicon.png', Astro.url).href
+				}
+			}
+		})} />
 	</head>
 
 	<body>
