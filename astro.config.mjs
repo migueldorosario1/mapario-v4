@@ -7,7 +7,15 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://mapario.com.br',
-	integrations: [mdx(), sitemap()],
+		integrations: [
+		mdx(),
+		sitemap({
+			filter: (page) => {
+				const path = new URL(page).pathname;
+				return !/(^|\/)(tags|teste|preview)(\/|-|$)/.test(path);
+			},
+		}),
+	],
 
 	fonts: [
 		{

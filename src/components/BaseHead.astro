@@ -14,11 +14,12 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata | string;
+	noindex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { title, description, image = FallbackImage, noindex = false } = Astro.props;
 
 let imageURL = '';
 if (typeof image === 'string') {
@@ -35,6 +36,7 @@ if (typeof image === 'string') {
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+{noindex && <meta name="robots" content="noindex,follow" />}
 <!-- Estilos base (body/main/fonte/vars) — antes bundleados via import, agora servidos
      de public/styles/ porque o bundler não os incluía no build (menu estourado 26/07) -->
 <link rel="stylesheet" href="/styles/global.css" />
