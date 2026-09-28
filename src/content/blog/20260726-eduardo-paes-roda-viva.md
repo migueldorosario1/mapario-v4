@@ -4,6 +4,7 @@ description: "O prefeito discute segurança pública, a relação com o governo 
 pubDate: "2022-02-14"
 video_date: "2022-02-14"
 heroImage: "/hero/image-9.png"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 region: "METROPOLITANA"
 politician: "EDUARDO PAES"
 party: "PSD"

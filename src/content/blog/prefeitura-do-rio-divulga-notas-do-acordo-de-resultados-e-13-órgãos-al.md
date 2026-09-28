@@ -9,6 +9,7 @@ lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
 heroImage: "/hero/prefeitura-do-rio-divulga-notas-do-acordo-de-resultados-e-13-órgãos-al.jpg"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 ---
 
 A Prefeitura do Rio de Janeiro divulgou as notas do Acordo de Resultados referentes a 2025. O instrumento avalia o desempenho dos órgãos municipais e tem relação com o pagamento do chamado 14º salário.

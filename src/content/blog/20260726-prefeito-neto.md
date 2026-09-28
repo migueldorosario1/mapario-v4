@@ -4,6 +4,7 @@ description: "O experiente prefeito detalha a recuperação econômica de Volta 
 pubDate: "2024-10-05"
 video_date: "2024-10-05"
 heroImage: "/hero/image-5.png"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 region: "SUL FLUMINENSE"
 politician: "NETO"
 party: "PP"

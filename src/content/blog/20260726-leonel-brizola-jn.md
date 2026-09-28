@@ -4,6 +4,7 @@ description: "O texto histórico lido na íntegra no JN, marcando a história da
 pubDate: "1994-03-15"
 video_date: "1994-03-15"
 heroImage: "/hero/darcy-brizola-400x274-1.jpg"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 region: "METROPOLITANA"
 politician: "LEONEL BRIZOLA"
 party: "PDT"

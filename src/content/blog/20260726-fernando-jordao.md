@@ -4,6 +4,7 @@ description: "O prefeito apresenta as obras financiadas pelos royalties das usin
 pubDate: "2022-12-20"
 video_date: "2022-12-20"
 heroImage: "/hero/image-7.png"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 region: "COSTA VERDE"
 politician: "FERNANDO JORDÃO"
 party: "PL"

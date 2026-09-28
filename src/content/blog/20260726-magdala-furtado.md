@@ -4,6 +4,7 @@ description: "Vídeo detalhando as contas públicas e os desafios administrativo
 pubDate: "2025-01-02"
 video_date: "2025-01-02"
 heroImage: "/hero/image-6.png"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 region: "REGIÃO DOS LAGOS"
 politician: "MAGDALA FURTADO"
 party: "PV"

@@ -4,6 +4,7 @@ description: "Uma discussão sobre as finanças e programas de anistia fiscal no
 pubDate: "2024-11-11"
 video_date: "2024-11-11"
 heroImage: "/hero/image-8.png"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 region: "CENTRO-SUL FLUMINENSE"
 politician: "JOACIR BARBAGLIO"
 party: "PL"

@@ -4,6 +4,7 @@ description: "Freixo expõe os bastidores da CPI das Milícias na ALERJ e aprese
 pubDate: "2023-07-27"
 video_date: "2023-07-27"
 heroImage: "/hero/image-10.png"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 region: "METROPOLITANA"
 politician: "MARCELO FREIXO"
 party: "PT"

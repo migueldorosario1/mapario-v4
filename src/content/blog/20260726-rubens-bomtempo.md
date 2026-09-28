@@ -4,6 +4,7 @@ description: "Bomtempo explica os desafios de reconstruir áreas de encostas e a
 pubDate: "2024-09-05"
 video_date: "2024-09-05"
 heroImage: "/hero/image-4.png"
+hero_credit: "Chensiyuan / Wikimedia Commons (CC BY-SA 3.0)"
 region: "SERRANA"
 politician: "RUBENS BOMTEMPO"
 party: "PSB"
