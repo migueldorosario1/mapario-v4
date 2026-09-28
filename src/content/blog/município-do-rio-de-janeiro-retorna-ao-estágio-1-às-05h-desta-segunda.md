@@ -8,6 +8,7 @@ tags: ["mapario"]
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+heroImage: "/hero/município-do-rio-de-janeiro-retorna-ao-estágio-1-às-05h-desta-segunda.jpg"
 ---
 
 O município do Rio de Janeiro retornou ao Estágio 1 às 05h desta segunda-feira, dia 28 de setembro de 2026. A informação foi divulgada pelo Centro de Operações Rio.

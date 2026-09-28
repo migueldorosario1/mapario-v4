@@ -8,6 +8,7 @@ tags: ["mapario"]
 lang: "pt-br"
 author: "Redação Mapa Rio"
 draft: false
+heroImage: "/hero/prefeitura-do-rio-divulga-notas-do-acordo-de-resultados-2025.jpg"
 ---
 
 A Prefeitura da Cidade do Rio de Janeiro divulgou as notas do Acordo de Resultados de 2025. O anúncio foi feito pela própria prefeitura por meio de seus canais oficiais.
