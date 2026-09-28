@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Interlinks from '../components/Interlinks.astro';
+import BannerMoka from '../components/BannerMoka.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { hideDate?: boolean; hideInterlinks?: boolean };
 
@@ -15,7 +16,6 @@ const { title, description, pubDate, updatedDate, video_date, heroImage, hero_le
 const videoDateFmt = video_date
 	? video_date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })
 	: null;
-import BannerMoka from '../components/BannerMoka.astro';
 ---
 
 <html lang="pt-BR">
