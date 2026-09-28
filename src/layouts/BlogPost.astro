@@ -15,6 +15,7 @@ const { title, description, pubDate, updatedDate, video_date, heroImage, hero_le
 const videoDateFmt = video_date
 	? video_date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })
 	: null;
+import BannerMoka from '../components/BannerMoka.astro';
 ---
 
 <html lang="pt-BR">
@@ -134,6 +135,8 @@ const videoDateFmt = video_date
 						<hr />
 					</div>
 					<slot />
+
+<BannerMoka />
 				</div>
 				{/* Quem Somos não leva o bloco "Leia também" — ordem do editor 07/08 */}
 				{!hideInterlinks && (
